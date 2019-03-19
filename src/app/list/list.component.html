@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <td>Nama</td>
+      <td>Umur</td>
+      <td>Alamat</td>
+      <td>Active</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let data of list">
+      <td>{{ data.nama }}</td>
+      <td>{{ data.umur }}</td>
+      <td>{{ data.alamat }}</td>
+      <td>{{ data.active }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<app-collection></app-collection>

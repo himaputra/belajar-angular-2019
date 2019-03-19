@@ -1,0 +1,43 @@
+<form [formGroup] = "formGroup" (submit) = "handler($event)">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="kode" id="id" formControlName="id">
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+  </div>
+  <div formGroupName = "alamat">
+    <div>
+      <label for="kota">Kota/kabupaten</label>
+      <select id="kota" name="kota" formControlName="kota">
+        <option value="jakarta">DKI Jakarta</option>
+        <option value="bandung">Bandung</option>
+        <option value="jogja">Yogyakarta</option>
+      </select>
+    </div>
+    <div>
+      <label for="alamatRt">RT</label>
+      <input type="number" name="alamatRt" id="alamatRt" formControlName="rt">
+    </div>
+    <div>
+      <label for="alamatRw">RW</label>
+      <input type="number" name="alamatRw" id="alamatRw" formControlName="rw">
+    </div>
+    <div>
+        <textarea name="alamatJalan" id="alamatJalan" cols="30" rows="10" formControlName="jalan"></textarea>
+    </div>
+  </div>
+  <div formArrayName="hobi">
+    <button type="button" (click)="addHobi()">Tambah</button>
+    <div *ngFor="let alamat of hobi.controls; let i = index">
+      <label for="id">Hoby ke {{i}}</label>
+      <input type="text" name="hoby" id="hoby" [formControlName]="i">
+      <button type="button" (click)="removeHobi(i)">X</button>
+    </div>
+  </div>
+  <div>
+    <button type = "submit">Kirim</button>
+    <button type = "reset">Kembali</button>
+  </div>
+</form>

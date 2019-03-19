@@ -1,0 +1,18 @@
+<form [formGroup] = "pelangganFormGroup" (submit) = "handler($event)">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="kodePelanggan" id="id" formControlName="id">
+  </div>
+  <div>
+      <label for="nama">Nama Pelanggan</label>
+      <input type="text" name="namaPelanggan" id="nama" formControlName="nama">
+  </div>
+  <div>
+      <label for="alamat">Alamat Pelanggan</label>
+      <input type="text" name="alamatPelanggan" id="alamat" formControlName="alamat">
+  </div>
+  <div>
+    <button type="submit">Tambah</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

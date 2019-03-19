@@ -1,0 +1,15 @@
+<p>
+  collection works!
+</p>
+
+<img [src]="imageUrl" alt="gambar">
+
+<div>
+  Jumlah di click {{clicked}}x
+  <button (click) = "handleWithClick()">Klik</button>
+</div>
+
+<div>
+  <input type="text" (input) = "inputKeyboard($event)">
+  Data yang diinput {{ keyboardInput }}
+</div>

@@ -1,0 +1,26 @@
+<form [formGroup] = "produkFormGroup" (submit) = "handler($event)">
+  <div>
+    <label for="id">Kode Produk</label>
+    <input type="text" name="kodeProduk" id="id" formControlName="id">
+  </div>
+  <div>
+    <label for="toko">Toko</label>
+    <input type="text" name="toko" id="toko" formControlName="toko">
+  </div>
+  <div>
+    <label for="nama">Nama Produk</label>
+    <input type="text" name="namaProduk" id="nama" formControlName="nama">
+  </div>
+  <div>
+    <label for="harga">Harga</label>
+    <input type="text" name="harga" id="harga" formControlName="harga">
+  </div>
+  <div>
+    <label for="kuantitas">Stok</label>
+    <input type="text" name="kuantitas" id="kuantitas" formControlName="kuantitas">
+  </div>
+  <div>
+    <button type="submit">Tambah</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
