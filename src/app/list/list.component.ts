@@ -8,6 +8,9 @@ import { Model as Data} from './list.model';
 })
 export class ListComponent {
 
+  counterClick: number = 0;
+  jabatan: string = "Trainer";
+
   constructor() { 
     let value = new Data();
     value._nama = "Himawan Eka Putra";
@@ -25,4 +28,13 @@ export class ListComponent {
   }
 
   list: Array<Data> = [];
+
+  clickHandler(events: any) {
+    this.counterClick++;
+    console.log(events);
+  }
+
+  clickHandler2(events: any) {
+    console.log(events.data);
+  }
 }

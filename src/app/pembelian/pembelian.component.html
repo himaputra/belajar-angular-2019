@@ -1,0 +1,52 @@
+<form [formGroup] = "pembelianFormGroup" (submit) = "submited()">
+    <div formGroupName="customer">
+        <label for="customer">Customer Name</label> 
+        <select name="customerName" formControlName = "id">
+            <option value="001">Dimas Maryanto</option>
+            <option value="002">Muhamad Yusuf</option>
+            <option value="003">Haris</option>
+            <option value="004">Hari Sapto Adi</option>
+            <option value="005">Rega</option>
+        </select>
+    </div>
+    <div>
+        <button (click) = "addItems()">Add Item</button>
+    </div>
+    <div formArrayName = "items">
+        <table>
+            <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Qty</td>
+                    <td>Price</td>
+                    <td>Sub Total</td>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let item of items.controls; let i=index">
+                <tr [formGroupName]="i">
+                    <td formGroupName="item">
+                        <select name="productName" id="product" formControlName="id">
+                            <option value="001">Macbook Pro 2017</option>
+                            <option value="002">Lenovo Thinkpad</option>
+                            <option value="003">Dell XPS 15</option>
+                            <option value="004">ASUS ROG</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input #fieldQty type="number" name="qty" id="qty" formControlName="qty">
+                    </td>
+                    <td>
+                        <input #fieldPrice type="number" name="price" id="price" formControlName="price">
+                    </td>
+                    <td>
+                        <input type="text" name="price" readonly [value]="fieldQty.value * fieldPrice.value">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button type="submit">Send</button>
+        <button type="reset">Kembali</button>
+    </div>
+</form>

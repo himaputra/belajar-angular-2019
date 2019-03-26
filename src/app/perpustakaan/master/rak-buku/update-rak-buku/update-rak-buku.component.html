@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (submit)="send()">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+    <span *ngIf="!formGroup.controls.id.valid">
+      <div *ngIf="formGroup.controls.id.errors.required">ID is required</div>
+      <div *ngIf="formGroup.controls.id.errors.minLength">ID minimum length is 3</div>
+    </span>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+    <span *ngIf="!formGroup.controls.nama.valid">
+      <div *ngIf="formGroup.controls.nama.errors.required">
+        Nama is required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="nomor">Nomor</label>
+    <input type="text" name="nomor" id="nomor" formControlName='nomor'>
+    <span *ngIf="!formGroup.controls.nomor.valid">
+        <div *ngIf="formGroup.controls.nomor.errors.required">
+          Nomor is required
+        </div>
+      </span>
+  </div>
+  <div>
+    <button [disabled]="!formGroup.valid" type="submit">Kirim</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

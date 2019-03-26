@@ -1,0 +1,29 @@
+<app-new-buku (submitted)="ngOnInit()"></app-new-buku>
+<table>
+  <thead>
+    <tr>
+      <td>Kode</td>
+      <td>Judul</td>
+      <td>ISBN</td>
+      <td>Kategori</td>
+      <td>Rak</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of list">
+      <td>{{ data.id }}</td>
+      <td>{{ data.nama }}</td>
+      <td>{{ data.isbn }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let kategori of data.daftarKategori">{{ kategori.nama }}</li>
+        </ul>
+      </td>
+      <td>{{ data.rak.id }}</td>
+      <td>
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'buku', 'detail', data.id]">Detail</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

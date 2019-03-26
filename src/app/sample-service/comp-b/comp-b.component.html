@@ -1,0 +1,18 @@
+<p>
+  comp-b works!
+</p>
+
+<ul *ngFor = "let data of list">
+  <li>{{data}}</li>
+</ul>
+
+<form [formGroup] = "formGroup" (submit) = "kirim()">
+  <div>
+    <label for="inputData">Data</label>
+    <input type="text" name="data" id="data" formControlName="namaLengkap">
+  </div>
+  <div>
+    <button type="submit">Kirim</button>
+    <button type="reset">Kembali</button>
+  </div>
+</form>

@@ -1,3 +1,7 @@
+Data Pribadi:
+
+<app-detail [dataDiri] = "list"></app-detail>
+<hr>
 <table>
   <thead>
     <tr>
@@ -9,12 +13,8 @@
   </thead>
   <tbody>
     <tr *ngFor = "let data of list">
-      <td>{{ data.nama }}</td>
-      <td>{{ data.umur }}</td>
-      <td>{{ data.alamat }}</td>
-      <td>{{ data.active }}</td>
+      <app-cell [dataPribadi]="data" [jabatan]="jabatan" (clicked2)="clickHandler2($event)" (clicked)="clickHandler($event)"></app-cell>
     </tr>
   </tbody>
 </table>
-
-<app-collection></app-collection>
+Jumlah Click: {{counterClick}}

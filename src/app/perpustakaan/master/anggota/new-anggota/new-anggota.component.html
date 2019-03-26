@@ -1,0 +1,48 @@
+<form [formGroup] = "formGroup" (submit)="send()">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+    <span *ngIf="!formGroup.controls.id.valid">
+      <div *ngIf="formGroup.controls.id.errors.required">ID is required</div>
+      <div *ngIf="formGroup.controls.id.errors.minLength">ID minimum length is 3</div>
+    </span>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+    <span *ngIf="!formGroup.controls.nama.valid">
+      <div *ngIf="formGroup.controls.nama.errors.required">
+        Nama is Required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="ttl">Tanggal lahir</label>
+    <input type="date" name="ttl" formControlName="ttl">
+    <span *ngIf="!formGroup.controls.ttl.valid">
+      <div *ngIf="formGroup.controls.ttl.errors.required">
+        Tanggal lahir is Required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="jenisKelamin">Jenis Kelamin</label>
+    <select name="jenisKelamin" id="jenisKelamin" formControlName="jenisKelamin">
+      <option value="Laki-laki">Laki-laki</option>
+      <option value="Perempuan">Perempuan</option>
+    </select>
+    <span *ngIf="!formGroup.controls.jenisKelamin.valid">
+      <div *ngIf="formGroup.controls.jenisKelamin.errors.required">
+        Jenis Kelamin is Required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="alamat">Alamat</label>
+    <textarea name="alamat" id="alamat" cols="30" rows="10" formControlName=alamat></textarea>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!formGroup.valid">Tambah</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

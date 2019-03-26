@@ -1,0 +1,26 @@
+<app-new-kategori-buku (submitted) = "ngOnInit()"></app-new-kategori-buku>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <td>Kode</td>
+      <td>Nama</td>
+      <td>Deskripsi</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let data of list">
+      <td>{{ data.id }}</td>
+      <td>{{ data.nama }}</td>
+      <td>{{ data.deskripsi }}</td>
+      <td>
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'kategori', 'buku', 'detail', data.id]">Detail</a>
+        &nbsp;
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'kategori', 'buku', 'update', data.id]">Update</a>
+        &nbsp;
+        <button type="button" (click)="removeById(data.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<form [formGroup] = "kategoriFormGroup" (submit) = "send($event)">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+    <span *ngIf = "!kategoriFormGroup.controls.id.valid">
+      <div *ngIf="kategoriFormGroup.controls.id.errors.required">ID is required</div>
+      <div *ngIf="kategoriFormGroup.controls.id.errors.minLength">Minimum length is 3</div>
+    </span>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+    <span *ngIf="!kategoriFormGroup.controls.nama.valid">
+      <div *ngIf="kategoriFormGroup.controls.nama.errors.required">Nama is required</div>
+    </span>
+  </div>
+  <div>
+    <label for="keterangan">Keterangan</label>
+    <textarea name="keterangan" id="keterangan" cols="30" rows="10"></textarea>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!kategoriFormGroup.valid">Kirim</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

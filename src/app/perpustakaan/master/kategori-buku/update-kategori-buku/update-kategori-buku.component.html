@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" (submit)="send($event)">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+    <span *ngIf="!formGroup.controls.id.valid">
+      <div *ngIf="formGroup.controls.id.errors.required">ID is required</div>
+      <div *ngIf="formGroup.controls.id.errors.minLength">Minimum length is 3</div>
+    </span>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+    <span *ngIf="!formGroup.controls.nama.valid">
+      <div *ngIf="formGroup.controls.nama.errors.required">Nama is required</div>
+    </span>
+  </div>
+  <div>
+    <label for="deskripsi">Keterangan</label>
+    <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" formControlName="deskripsi"></textarea>
+  </div>
+  <div>
+    <button [disabled]="!formGroup.valid" type="submit">Kirim</button>
+    <button type="reset">Kembali</button>
+  </div>
+</form>

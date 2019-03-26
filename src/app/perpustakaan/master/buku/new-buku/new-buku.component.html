@@ -1,0 +1,64 @@
+<form [formGroup]="formGroup" (submit)="send()">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+    <span *ngIf="!formGroup.controls.id.valid">
+      <div *ngIf="formGroup.controls.id.errors.required">ID is required</div>
+      <div *ngIf="formGroup.controls.id.errors.minLength">ID minimum length is 3</div>
+    </span>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+    <span *ngIf="!formGroup.controls.nama.valid">
+      <div *ngIf="formGroup.controls.nama.errors.required">
+        Nama is Required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="isbn">ISBN</label>
+    <input type="text" name="isbn" formControlName="isbn">
+    <span *ngIf="!formGroup.controls.isbn.valid">
+      <div *ngIf="formGroup.controls.isbn.errors.required">
+        ISBN is Required
+      </div>
+    </span>
+  </div>
+  <div>
+    <label for="tahunTerbit">Tahun Terbit</label>
+    <input type="text" name="isbn" formControlName="tahunTerbit">
+    <span *ngIf="!formGroup.controls.isbn.valid">
+      <div *ngIf="formGroup.controls.isbn.errors.required">
+        ISBN is Required
+      </div>
+    </span>
+  </div>
+  <div formArrayName="daftarKategori">
+    <button type="button" (click)="addKategori()">Tambah</button>
+    <div *ngFor="let list of kategori.controls; let i = index">
+      <label for="id">Kategori ke {{i}}</label>
+      <div [formGroupName]="i">
+        <select name="kategori" id="kategori" formControlName="id">
+          <option value="001">Pemrograman</option>
+          <option value="002">Ilmu Komputer</option>
+          <option value="003">Matematika</option>
+          <option value="004">Fisika</option>
+        </select>
+      </div>
+      <button type="button" (click)="removeKategori(i)">X</button>
+    </div>
+  </div>
+  <div formGroupName="rak">
+    <label for="Rak">Rak</label>
+    <select name="rak" id="rak" formControlName="id">
+      <option value="001">Komputer</option>
+      <option value="002">Fisika</option>
+      <option value="003">Matematika</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!formGroup.valid">Tambah</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

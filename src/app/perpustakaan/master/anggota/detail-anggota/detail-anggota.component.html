@@ -1,0 +1,29 @@
+<form [formGroup] = "formGroup">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id">
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="nama">
+  </div>
+  <div>
+    <label for="ttl">Tanggal lahir</label>
+    <input type="date" name="ttl" formControlName="ttl">
+  </div>
+  <div>
+    <label for="jenisKelamin">Jenis Kelamin</label>
+    <select name="jenisKelamin" id="jenisKelamin" formControlName="jenisKelamin">
+      <option value="Laki-laki">Laki-laki</option>
+      <option value="Perempuan">Perempuan</option>
+    </select>
+  </div>
+  <div>
+    <label for="alamat">Alamat</label>
+    <textarea name="alamat" id="alamat" cols="30" rows="10" formControlName=alamat></textarea>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!formGroup.valid">Tambah</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>

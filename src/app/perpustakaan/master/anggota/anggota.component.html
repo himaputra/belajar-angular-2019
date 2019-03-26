@@ -1,0 +1,29 @@
+<app-new-anggota (submitted)="ngOnInit()"></app-new-anggota>
+<table>
+  <thead>
+    <tr>
+      <td>Kode</td>
+      <td>Nama</td>
+      <td>Tanggal Lahir</td>
+      <td>Jenis Kelamin</td>
+      <td>Alamat</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of list">
+      <td>{{ data.id }}</td>
+      <td>{{ data.nama }}</td>
+      <td>{{ data.ttl }}</td>
+      <td>{{ data.jenisKelamin }}</td>
+      <td>{{ data.alamat }}</td>
+      <td>
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'anggota', 'detail', data.id]">Detail</a>
+        &nbsp;
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'anggota', 'update', data.id]">Update</a>
+        &nbsp;
+        <button type="button" (click)="removeById(data.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

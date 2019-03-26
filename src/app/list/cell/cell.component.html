@@ -1,0 +1,9 @@
+<td>
+  {{ dataPribadi.nama }}
+  {{jabatan}}
+  <button type="button" (click)="handle()">X</button>
+  <input type="text" name="nama" id="nama" (input)="handle2($event)">
+</td>
+<td>{{ dataPribadi.umur }}</td>
+<td>{{ dataPribadi.alamat }}</td>
+<td>{{ dataPribadi.active }}</td>

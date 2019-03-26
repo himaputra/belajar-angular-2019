@@ -1,0 +1,25 @@
+<app-new-rak-buku (submitted) = "ngOnInit()"></app-new-rak-buku>
+<table>
+  <thead>
+    <tr>
+      <td>Kode</td>
+      <td>Nama</td>
+      <td>Nomor</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listRak">
+      <td>{{ data.id }}</td>
+      <td>{{ data.nama }}</td>
+      <td>{{ data.nomor }}</td>
+      <td>
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'rak', 'detail', data.id]">Detail</a>
+        &nbsp;
+        <a [routerLink]="['/', 'perpustakaan', 'master', 'rak', 'update', data.id]">Update</a>
+        &nbsp;
+        <button type="button" (click)="removeById(data.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

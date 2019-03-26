@@ -1,14 +1,14 @@
 export class Model {
-    private nama: String;
-    alamat: String;
+    private nama: string;
+    alamat: string;
     umur: number;
     active: boolean;
 
-    get _nama(): String {
+    get _nama(): string {
         return this.nama;
     }
 
-    set _nama(_nama: String) {
+    set _nama(_nama: string) {
         this.nama = _nama;
     }
 }
